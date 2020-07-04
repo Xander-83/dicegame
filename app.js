@@ -12,38 +12,42 @@ GAME RULES:
 
 let btnRoll = document.getElementById("btn-roll");
 
-
 let randomNum1 = Math.floor(Math.random() * 6) + 1;
 let randomNum2 = Math.floor(Math.random() * 6) + 1;
-console.log(randomNum1, randomNum2);
-
-let diceImage1 = document.getElementById("dice").src = "dice-" + randomNum1 +".png";
+let dice1 = randomNum1;
+let dice2 = randomNum2;
+let diceImage1 = document.getElementById("dice").src = "dice-" + randomNum1 + ".png";
 let diceImage2 = document.getElementById("dice2").src = "dice-" + randomNum2 + ".png";
 
 
 let diceRolled = () => {   
-    let dice1 = randomNum1;
-    let dice2 = randomNum2;
-
-    console.log('dice1', randomNum1);
-    console.log('dice2', randomNum2);
+    if (dice1 !== 1 && dice2 !== 1) {
+        return (Number(dice1) + Number(dice2));
+    }
+        else {
+        console.log("You lose");
+        return 0;
+    };
+    //console.log('dice1', dice1);
+    //console.log('dice2', dice2);
 };
- 
-diceRolled();
+let roundUp = diceRolled();
+let playerOne = document.getElementById("score-0").innerHTML = roundUp;
+//let roundUp = diceRolled(result);
+//diceRolled();
 
-function score(dice1, dice2) {
+/*function score(dice1, dice2) {
     if (randomNum1 !== 1 && randomNum2 !== 1) {
         var roundUp = (Number(randomNum1) + Number(randomNum2));
         console.log(roundUp);
     } else {
         console.log("You lose");
     }
-};
+};*/
 
 //console.log(diceRolled());
 
 
 
-
-
 btnRoll.addEventListener('click', diceRolled);
+
