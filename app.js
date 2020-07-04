@@ -8,31 +8,46 @@ GAME RULES:
 - The first player to reach 100 points on GLOBAL score wins the game
 
 */
+let randomNum1 = 0;
+let randomNum2 = 0;
+let total = 0;
 
+let btnroll = document.getElementById("btn-roll").onclick = function startNewGame() {
+     randomNum1 = Math.floor(Math.random() * 6) + 1;
+     randomNum2 = Math.floor(Math.random() * 6) + 1;
+    let diceImage1 = document.getElementById("dice").src = "dice-" + randomNum1 + ".png";
+    let diceImage2 = document.getElementById("dice2").src = "dice-" + randomNum2 + ".png";
+    if (randomNum1 !== 1 && randomNum2 !== 1) {
+        let total = (Number(randomNum1) + Number(randomNum2));
+        console.log(Number(total));
+        return total;
 
-let btnRoll = document.getElementById("btn-roll");
-
-let randomNum1 = Math.floor(Math.random() * 6) + 1;
-let randomNum2 = Math.floor(Math.random() * 6) + 1;
-let dice1 = randomNum1;
-let dice2 = randomNum2;
-let diceImage1 = document.getElementById("dice").src = "dice-" + randomNum1 + ".png";
-let diceImage2 = document.getElementById("dice2").src = "dice-" + randomNum2 + ".png";
-
-
-let diceRolled = () => {   
-    if (dice1 !== 1 && dice2 !== 1) {
-        return (Number(dice1) + Number(dice2));
     }
-        else {
+    else {
         console.log("You lose");
         return 0;
     };
+};
+console.log('total', total);
+let playerOne = document.getElementById("score-0").innerText = Number(total);
+
+/*let dice1 = randomNum1;
+let dice2 = randomNum2;
+let diceRolled = () => {
+    if (randomNum1 !== 1 && randomNum2 !== 1) {
+        return (Number(randomNum1) + Number(randomNum2));
+      
+    }
+    else {
+        console.log("You lose");
+        return 0;
+    };
+};
+
     //console.log('dice1', dice1);
     //console.log('dice2', dice2);
-};
-let roundUp = diceRolled();
-let playerOne = document.getElementById("score-0").innerHTML = roundUp;
 
-btnRoll.addEventListener('click', diceRolled);
 
+
+//btnRoll.addEventListener('click', diceRolled);
+*/
