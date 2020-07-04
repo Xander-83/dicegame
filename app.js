@@ -8,7 +8,7 @@ GAME RULES:
 - The first player to reach 100 points on GLOBAL score wins the game
 
 */
-//join the zoom meeting. meeting room 2015192899
+
 
 let btnRoll = document.getElementById("btn-roll");
 
@@ -33,21 +33,6 @@ let diceRolled = () => {
 };
 let roundUp = diceRolled();
 let playerOne = document.getElementById("score-0").innerHTML = roundUp;
-//let roundUp = diceRolled(result);
-//diceRolled();
-
-/*function score(dice1, dice2) {
-    if (randomNum1 !== 1 && randomNum2 !== 1) {
-        var roundUp = (Number(randomNum1) + Number(randomNum2));
-        console.log(roundUp);
-    } else {
-        console.log("You lose");
-    }
-};*/
-
-//console.log(diceRolled());
-
-
 
 btnRoll.addEventListener('click', diceRolled);
 
